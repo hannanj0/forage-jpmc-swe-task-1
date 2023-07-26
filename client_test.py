@@ -11,6 +11,8 @@ class ClientTest(unittest.TestCase):
              'top_bid': {'price': 117.87, 'size': 81}, 'id': '0.109974697771', 'stock': 'DEF'}
         ]
         """ ------------ Add the assertion below ------------ """
+        for i in quotes:
+          self.assertEqual(getDataPoint(i),(i['stock'],i['bid_price'],i['ask_price'],(['bid_price']+i['ask_price'])/2))
 
     def test_getDataPoint_calculatePriceBidGreaterThanAsk(self):
         quotes = [
@@ -20,6 +22,9 @@ class ClientTest(unittest.TestCase):
              'top_bid': {'price': 117.87, 'size': 81}, 'id': '0.109974697771', 'stock': 'DEF'}
         ]
         """ ------------ Add the assertion below ------------ """
+
+        for i in quotes:
+          self.assertEqual(getDataPoint(i),(i['stock'],i['bid_price'],i['ask_price'],(['bid_price']+i['ask_price'])/2))
 
     """ ------------ Add more unit tests ------------ """
 
